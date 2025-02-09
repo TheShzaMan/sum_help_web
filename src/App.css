@@ -2,20 +2,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 100s linear;
-  }
-}
-
 .App-header {
   background-color:rgb(255, 82, 82);
-  
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -48,6 +36,24 @@
   opacity: 1;
   z-index: 1;
   height: 10%;
+  transition: 0.4s;
+}
+
+.active, .button:hover {
+  background-color: #ccc;
+  color: #282c34;
+}
+
+.drawer {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.drawer.active {
+  max-height: 100vh; /* Adjust as needed */
 }
 
 @keyframes App-logo-spin {
