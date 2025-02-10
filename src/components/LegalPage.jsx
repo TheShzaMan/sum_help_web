@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 import PrivacyPolicy from "../elements/PrivacyPolicy";
 import TermsAndConditions from "../elements/TermsAndConditions";
@@ -12,24 +13,40 @@ const LegalPage = () => {
 
 	return (
 		<div className='App-header'>
-			<div className='background'></div>
-			<button className='button' onClick={() => toggleDrawer("privacy")}>
-				Privacy Policy
-			</button>
-			<div
-				className={`drawer ${
-					activeDrawer === "privacy" ? "active" : ""
-				}`}
-			>
-				<PrivacyPolicy />
-			</div>
-			<button className='button' onClick={() => toggleDrawer("terms")}>
-				Terms and Conditions
-			</button>
-			<div
-				className={`drawer ${activeDrawer === "terms" ? "active" : ""}`}
-			>
-				<TermsAndConditions />
+			<div className='bg-landing'>
+				<div className='content'>
+					<text
+						className='button-text'
+						onClick={() => toggleDrawer("privacy")}
+					>
+						Privacy Policy
+					</text>
+					<div
+						className={`drawer ${
+							activeDrawer === "privacy" ? "active" : ""
+						}`}
+					>
+						<PrivacyPolicy />
+					</div>
+					<text
+						className='button-text'
+						onClick={() => toggleDrawer("terms")}
+					>
+						Terms and Conditions
+					</text>
+					<div
+						className={`drawer ${
+							activeDrawer === "terms" ? "active" : ""
+						}`}
+					>
+						<TermsAndConditions />
+					</div>
+					<Link to='/'>
+						<div className='exit'>
+							<text className='exit'>exit</text>
+						</div>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
