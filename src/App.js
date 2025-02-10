@@ -1,42 +1,15 @@
-import React, { useState } from "react";
-import "./App.css";
-import PrivacyPolicy from "./elements/PrivacyPolicy";
-// import TermsAndConditions from "./elements/TermsAndConditions";
+import React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import LegalPage from "./components/LegalPage";
 
 function App() {
-	const [activeDrawer, setActiveDrawer] = useState(null);
-
-	const toggleDrawer = (drawer) => {
-		setActiveDrawer(activeDrawer === drawer ? null : drawer);
-	};
-
 	return (
-		<div className='App-header'>
-			<div className='background'></div>
-			<button className='button' onClick={() => toggleDrawer("privacy")}>
-				Privacy Policy
-			</button>
-			<div
-				className={`drawer ${
-					activeDrawer === "privacy" ? "active" : ""
-				}`}
-			>
-				<PrivacyPolicy />
-			</div>
-			<button className='button' onClick={() => toggleDrawer("terms")}>
-				Terms and Conditions
-			</button>
-			<div
-				className={`drawer ${activeDrawer === "terms" ? "active" : ""}`}
-			>
-				<TermsAndConditions />
-			</div>
-		</div>
+		<Router>
+			<Routes>
+				<Route path='/legal' element={<LegalPage />} />
+			</Routes>
+		</Router>
 	);
-}
-
-function TermsAndConditions() {
-	return <div>Terms and Conditions Content</div>;
 }
 
 export default App;
