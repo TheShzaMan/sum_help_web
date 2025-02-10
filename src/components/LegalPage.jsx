@@ -43,7 +43,7 @@ const LegalPage = () => {
 					</div>
 					<Link to='/'>
 						<div className='exit'>
-							<text className='exit'>exit</text>
+							<text className='exit'>home</text>
 						</div>
 					</Link>
 				</div>
