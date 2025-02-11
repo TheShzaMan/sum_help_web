@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 import PrivacyPolicy from "../elements/PrivacyPolicy";
 import TermsAndConditions from "../elements/TermsAndConditions";
@@ -9,6 +9,7 @@ const LegalPage = () => {
 	const [activeDrawer, setActiveDrawer] = useState(null);
 	const [privacyPolicy, setPrivacyPolicy] = useState("");
 	// const [terms, setTerms] = useState('');
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetch("/legal/privacy-policy.md")
@@ -39,7 +40,7 @@ const LegalPage = () => {
 							activeDrawer === "privacy" ? "active" : ""
 						}`}
 					>
-						<ReactMarkdown>{privacyPolicy}</ReactMarkdown>
+						<PrivacyPolicy document={privacyPolicy} />
 					</div>
 					<text
 						className='button-text'
@@ -54,11 +55,11 @@ const LegalPage = () => {
 					>
 						<TermsAndConditions />
 					</div>
-					<Link to='/'>
-						<div className='exit'>
-							<text className='exit'>home</text>
-						</div>
-					</Link>
+					<div className='exit-container'>
+						<text onClick={() => navigate("/")} className='exit'>
+							home
+						</text>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,8 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
-const PrivacyPolicy = () => {
-	return <div>Privacy Policy Content</div>;
+const PrivacyPolicy = ({ document }) => {
+	return <ReactMarkdown>{document}</ReactMarkdown>;
 };
 
 export default PrivacyPolicy;
