@@ -125,7 +125,7 @@ We implement security measures to protect user data, including:
 
 ###
 
-**6\. Children’s Privacy**
+**6\. Children&#39;s Privacy**
 
 SumHelp is not intended for users under the age of 13. We do not knowingly collect personal data from children. If we discover such data, we will delete it immediately.
 
