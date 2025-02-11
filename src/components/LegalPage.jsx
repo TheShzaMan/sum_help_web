@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import "../App.css";
 import PrivacyPolicy from "../elements/PrivacyPolicy";
@@ -6,6 +7,18 @@ import TermsAndConditions from "../elements/TermsAndConditions";
 
 const LegalPage = () => {
 	const [activeDrawer, setActiveDrawer] = useState(null);
+	const [privacyPolicy, setPrivacyPolicy] = useState("");
+	// const [terms, setTerms] = useState('');
+
+	useEffect(() => {
+		fetch("/legal/privacy-policy.md")
+			.then((response) => response.text())
+			.then((text) => setPrivacyPolicy(text));
+
+		// fetch('/legal/terms.md')
+		//   .then((response) => response.text())
+		//   .then((text) => setTerms(text));
+	}, []);
 
 	const toggleDrawer = (drawer) => {
 		setActiveDrawer(activeDrawer === drawer ? null : drawer);
@@ -26,7 +39,7 @@ const LegalPage = () => {
 							activeDrawer === "privacy" ? "active" : ""
 						}`}
 					>
-						<PrivacyPolicy />
+						<ReactMarkdown>{privacyPolicy}</ReactMarkdown>
 					</div>
 					<text
 						className='button-text'
