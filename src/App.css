@@ -46,14 +46,17 @@
 }
 
 .button-text {
-  width: fit-content;
-  color: rgb(34, 34, 34);
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  color: #fb9999;
   font-size: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  background-color: rgba(255, 255, 250, 0.7);
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  border-bottom-color: rgb(34, 34, 34);
+  background-color: rgba(0, 0, 0, 0.7);
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(226, 226, 226);
+  border-radius: 10px;
 }
 
 a {
@@ -62,14 +65,20 @@ overflow: hidden;
 }
 
 .button-text:hover {
-  color: #0c9c86;
+  color: rgb(210, 210, 210);
   /* background-color: rgba(0, 0, 0, 0.6); */
-  width: 100%;
-  text-align: center;
+}
+
+.button-text.active {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 10px;
 }
 
 .drawer {
-  padding: 0 26px;
+  padding: 0 18px;
   background-color: rgba(0, 0, 0, 0.8);
   max-height: 0;
   overflow: hidden;
@@ -80,10 +89,13 @@ overflow: hidden;
 .drawer.active {
   max-height: 90vh;
   overflow: auto;
+ 
+  /* overflow-x: visible; */
 }
 
 .drawer-text{
   color: white;
+  /* text-wrap-mode: wrap; */
 }
 
 .exit-container {

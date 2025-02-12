@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
-import PrivacyPolicy from "../elements/PrivacyPolicy";
-import MarkdownDocDisplay from "./MarkdownDocDisplay";
+import HtmlFileDisplay from "./HtmlFileDisplay";
 
 const LegalPage = () => {
 	const [activeDrawer, setActiveDrawer] = useState(null);
-	const [privacyPolicy, setPrivacyPolicy] = useState("");
 	const [terms, setTerms] = useState("");
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch("/legal/privacy-policy.md")
-			.then((response) => response.text())
-			.then((text) => setPrivacyPolicy(text));
-
 		fetch("/legal/terms.md")
 			.then((response) => response.text())
 			.then((text) => setTerms(text));
@@ -29,7 +23,9 @@ const LegalPage = () => {
 			<div className='bg-landing'>
 				<div className='content'>
 					<text
-						className='button-text'
+						className={`button-text ${
+							activeDrawer === "privacy" ? "active" : ""
+						}`}
 						onClick={() => toggleDrawer("privacy")}
 					>
 						Privacy Policy
@@ -39,13 +35,16 @@ const LegalPage = () => {
 							activeDrawer === "privacy" ? "active" : ""
 						}`}
 					>
-						<PrivacyPolicy />
-						{/* <text className='drawer-text'>
-							<MarkdownDocDisplay document={privacyPolicy} />
-						</text> */}
+						<text className='drawer-text'>
+							<HtmlFileDisplay
+								htmlFilePath={"/legal/privacy-policy.htm"}
+							/>
+						</text>
 					</div>
 					<text
-						className='button-text'
+						className={`button-text ${
+							activeDrawer === "terms" ? "active" : ""
+						}`}
 						onClick={() => toggleDrawer("terms")}
 					>
 						Terms of Use
@@ -56,7 +55,10 @@ const LegalPage = () => {
 						}`}
 					>
 						<text className='drawer-text'>
-							<MarkdownDocDisplay document={terms} />
+							<HtmlFileDisplay
+								htmlFilePath={"/legal/terms.htm"}
+								document={terms}
+							/>
 						</text>
 					</div>
 					<div className='exit-container'>
