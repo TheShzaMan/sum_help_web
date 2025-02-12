@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import PrivacyPolicy from "../elements/PrivacyPolicy";
 import MarkdownDocDisplay from "./MarkdownDocDisplay";
 
 const LegalPage = () => {
@@ -38,9 +39,10 @@ const LegalPage = () => {
 							activeDrawer === "privacy" ? "active" : ""
 						}`}
 					>
-						<text className='drawer-text'>
+						<PrivacyPolicy />
+						{/* <text className='drawer-text'>
 							<MarkdownDocDisplay document={privacyPolicy} />
-						</text>
+						</text> */}
 					</div>
 					<text
 						className='button-text'
