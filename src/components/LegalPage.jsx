@@ -22,14 +22,26 @@ const LegalPage = () => {
 		<div className='App-header'>
 			<div className='bg-landing'>
 				<div className='content'>
-					<text
-						className={`button-text ${
-							activeDrawer === "privacy" ? "active" : ""
-						}`}
-						onClick={() => toggleDrawer("privacy")}
-					>
-						Privacy Policy
-					</text>
+					<div className='button-drawer-container'>
+						<text
+							className={`button-text ${
+								activeDrawer === "privacy" ? "active" : ""
+							}`}
+							onClick={() => toggleDrawer("privacy")}
+						>
+							Privacy Policy
+						</text>
+						<text
+							className={`button-text ${
+								activeDrawer === "terms" ? "active" : ""
+							}`}
+							onClick={() => toggleDrawer("terms")}
+						>
+							Terms of Use
+						</text>
+					</div>
+				</div>
+				<div className='button-drawer-container'>
 					<div
 						className={`drawer ${
 							activeDrawer === "privacy" ? "active" : ""
@@ -41,14 +53,6 @@ const LegalPage = () => {
 							/>
 						</text>
 					</div>
-					<text
-						className={`button-text ${
-							activeDrawer === "terms" ? "active" : ""
-						}`}
-						onClick={() => toggleDrawer("terms")}
-					>
-						Terms of Use
-					</text>
 					<div
 						className={`drawer ${
 							activeDrawer === "terms" ? "active" : ""
@@ -61,11 +65,11 @@ const LegalPage = () => {
 							/>
 						</text>
 					</div>
-					<div className='exit-container'>
-						<text onClick={() => navigate("/")} className='exit'>
-							home
-						</text>
-					</div>
+				</div>
+				<div className='exit-container'>
+					<text onClick={() => navigate("/")} className='exit'>
+						home
+					</text>
 				</div>
 			</div>
 		</div>
