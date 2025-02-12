@@ -16,9 +16,6 @@ SumHelp ("we," "us," or "our") is committed to protecting the privacy of our use
 
 **_---_**
 
-<br>
-<br>
-
 ### **1\. Information We Collect**
 
 We collect the following types of information:
