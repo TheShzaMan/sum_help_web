@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
-import PrivacyPolicy from "../elements/PrivacyPolicy";
-import TermsAndConditions from "../elements/TermsAndConditions";
+import MarkdownDocDisplay from "./MarkdownDocDisplay";
 
 const LegalPage = () => {
 	const [activeDrawer, setActiveDrawer] = useState(null);
 	const [privacyPolicy, setPrivacyPolicy] = useState("");
-	// const [terms, setTerms] = useState('');
+	const [terms, setTerms] = useState("");
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -16,9 +14,9 @@ const LegalPage = () => {
 			.then((response) => response.text())
 			.then((text) => setPrivacyPolicy(text));
 
-		// fetch('/legal/terms.md')
-		//   .then((response) => response.text())
-		//   .then((text) => setTerms(text));
+		fetch("/legal/terms.md")
+			.then((response) => response.text())
+			.then((text) => setTerms(text));
 	}, []);
 
 	const toggleDrawer = (drawer) => {
@@ -40,20 +38,24 @@ const LegalPage = () => {
 							activeDrawer === "privacy" ? "active" : ""
 						}`}
 					>
-						<PrivacyPolicy document={privacyPolicy} />
+						<text className='drawer-text'>
+							<MarkdownDocDisplay document={privacyPolicy} />
+						</text>
 					</div>
 					<text
 						className='button-text'
 						onClick={() => toggleDrawer("terms")}
 					>
-						Terms and Conditions
+						Terms of Use
 					</text>
 					<div
 						className={`drawer ${
 							activeDrawer === "terms" ? "active" : ""
 						}`}
 					>
-						<TermsAndConditions />
+						<text className='drawer-text'>
+							<MarkdownDocDisplay document={terms} />
+						</text>
 					</div>
 					<div className='exit-container'>
 						<text onClick={() => navigate("/")} className='exit'>

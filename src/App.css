@@ -70,15 +70,20 @@ overflow: hidden;
 
 .drawer {
   padding: 0 26px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  color: "white";
 }
 
 .drawer.active {
   max-height: 90vh;
   overflow: auto;
+}
+
+.drawer-text{
+  color: white;
 }
 
 .exit-container {
