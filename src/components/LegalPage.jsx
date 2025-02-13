@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
 import HtmlFileDisplay from "./HtmlFileDisplay";
 
@@ -22,6 +22,17 @@ const LegalPage = () => {
 		<div className='App-header'>
 			<div className='bg-landing'>
 				<div className='content'>
+					<div className='button-drawer-container'>
+						<Link className='button-text' to='/'>
+							<text>About</text>
+						</Link>
+						<Link className='button-text' to='/'>
+							<text>Contact</text>
+						</Link>
+						<Link className='button-text' to='/'>
+							<text>Legal</text>
+						</Link>
+					</div>
 					<div className='button-drawer-container'>
 						<text
 							className={`button-text ${
