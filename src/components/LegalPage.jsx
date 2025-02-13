@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../App.css";
 import HtmlFileDisplay from "./HtmlFileDisplay";
 
 const LegalPage = () => {
 	const [activeDrawer, setActiveDrawer] = useState(null);
-	const [terms, setTerms] = useState("");
-	const navigate = useNavigate();
+	// const [terms, setTerms] = useState("");
 
-	useEffect(() => {
-		fetch("/legal/terms.md")
-			.then((response) => response.text())
-			.then((text) => setTerms(text));
-	}, []);
+	// useEffect(() => {
+	// 	fetch("/legal/terms.md")
+	// 		.then((response) => response.text())
+	// 		.then((text) => setTerms(text));
+	// }, []);
 
 	const toggleDrawer = (drawer) => {
 		setActiveDrawer(activeDrawer === drawer ? null : drawer);
@@ -72,15 +71,10 @@ const LegalPage = () => {
 						<text className='drawer-text'>
 							<HtmlFileDisplay
 								htmlFilePath={"/legal/terms.htm"}
-								document={terms}
+								// document={terms}
 							/>
 						</text>
 					</div>
-				</div>
-				<div className='exit-container'>
-					<text onClick={() => navigate("/")} className='exit'>
-						home
-					</text>
 				</div>
 			</div>
 		</div>
