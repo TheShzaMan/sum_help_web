@@ -125,7 +125,7 @@ a:visited {
 
 .drawer.active {
   display: block;
-  max-height:65vh;
+  max-height:75vh;
   /* width: 300px; */
   overflow-y: auto;
   overflow-x: hidden;
