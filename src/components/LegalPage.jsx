@@ -32,9 +32,9 @@ const LegalPage = () => {
 						<Link className='button-text' to='/'>
 							<text>About</text>
 						</Link>
-						<Link className='button-text' to='/'>
+						{/* <Link className='button-text' to='/'>
 							<text>Contact</text>
-						</Link>
+						</Link> */}
 						<Link className='button-text' to='/'>
 							<text>Legal</text>
 						</Link>

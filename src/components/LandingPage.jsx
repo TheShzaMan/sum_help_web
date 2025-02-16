@@ -22,14 +22,14 @@ const LandingPage = () => {
 						<text className='button-text' onClick={handleClick}>
 							About
 						</text>
-						<text
+						{/* <text
 							className={`button-text ${
 								activeDrawer === "contact" ? "active" : ""
 							}`}
 							onClick={() => toggleDrawer("contact")}
 						>
 							Contact
-						</text>
+						</text> */}
 						<Link className='button-text' to='/legal'>
 							<text>Legal</text>
 						</Link>
