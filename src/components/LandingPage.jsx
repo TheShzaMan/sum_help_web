@@ -6,10 +6,6 @@ import ContactForm from "./ContactForm";
 const LandingPage = () => {
 	const [activeDrawer, setActiveDrawer] = useState(null);
 
-	const handleClick = () => {
-		console.log("Button clicked!");
-	};
-
 	const toggleDrawer = (drawer) => {
 		setActiveDrawer(activeDrawer === drawer ? null : drawer);
 	};
@@ -19,9 +15,9 @@ const LandingPage = () => {
 			<div className='bg-landing'>
 				<div className={`content ${activeDrawer ? "drawer-open" : ""}`}>
 					<div className='button-drawer-container'>
-						<text className='button-text' onClick={handleClick}>
-							About
-						</text>
+						<Link className='button-text' to='/data'>
+							<text>Data</text>
+						</Link>
 						{/* <text
 							className={`button-text ${
 								activeDrawer === "contact" ? "active" : ""

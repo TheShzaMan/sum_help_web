@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
 import HtmlFileDisplay from "./HtmlFileDisplay";
 
-const LegalPage = () => {
+const DataPage = () => {
 	const [activeDrawer, setActiveDrawer] = useState(null);
 	const navigate = useNavigate();
 
@@ -33,8 +33,8 @@ const LegalPage = () => {
 							<text>Data</text>
 						</Link>
 						{/* <Link className='button-text' to='/'>
-							<text>Contact</text>
-						</Link> */}
+                            <text>Contact</text>
+                        </Link> */}
 						<Link className='button-text' to='/'>
 							<text>Legal</text>
 						</Link>
@@ -42,43 +42,25 @@ const LegalPage = () => {
 					<div className='button-drawer-container'>
 						<text
 							className={`button-text ${
-								activeDrawer === "privacy" ? "active" : ""
+								activeDrawer === "data" ? "active" : ""
 							}`}
-							onClick={() => toggleDrawer("privacy")}
+							onClick={() => toggleDrawer("data")}
 						>
-							Privacy Policy
-						</text>
-						<text
-							className={`button-text ${
-								activeDrawer === "terms" ? "active" : ""
-							}`}
-							onClick={() => toggleDrawer("terms")}
-						>
-							Terms of Use
+							Data Deletion Request
 						</text>
 					</div>
 				</div>
 				<div className='button-drawer-container'>
 					<div
 						className={`drawer ${
-							activeDrawer === "privacy" ? "active" : ""
+							activeDrawer === "data" ? "active" : ""
 						}`}
 					>
 						<text className='drawer-text'>
 							<HtmlFileDisplay
-								htmlFilePath={"/legal/privacy-policy.htm"}
-							/>
-						</text>
-					</div>
-					<div
-						className={`drawer ${
-							activeDrawer === "terms" ? "active" : ""
-						}`}
-					>
-						<text className='drawer-text'>
-							<HtmlFileDisplay
-								htmlFilePath={"/legal/terms.htm"}
-								// document={terms}
+								htmlFilePath={
+									"/data/accountDataDeletionRequest.htm"
+								}
 							/>
 						</text>
 					</div>
@@ -88,4 +70,4 @@ const LegalPage = () => {
 	);
 };
 
-export default LegalPage;
+export default DataPage;
